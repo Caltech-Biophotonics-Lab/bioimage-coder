@@ -1,0 +1,51 @@
+name: Compile BioImage DSL and run unit tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Fetch sources
+      uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+        cache: pip
+
+    - name: Install C++ toolchain
+      uses: awalsh128/cache-apt-pkgs-action@latest
+      with:
+        packages: build-essential libboost-fiber-dev libasio-dev
+        version: 1.0
+
+    - name: Install Python dependencies
+      run: |
+        pip install --upgrade uv
+        uv pip install --system meson ninja
+
+    - name: Cache 3rd party C++ projects
+      uses: actions/cache@v3
+      with:
+        key: meson-cache
+        path: subprojects/packagecache/
+
+    - name: Setup ccache
+      uses: hendrikmuhs/ccache-action@v1.2
+      with:
+        key: ${{ runner.os }}-ccache
+
+    - name: Resolve C++ build dependencies
+      run: meson setup build/
+
+    - name: Build everything
+      run: ninja -C build/ all
+
+    - name: Test everything
+      run: ninja -C build/ test
+
