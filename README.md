@@ -59,7 +59,11 @@ This repository is one of the following components of the 96-Eyes instrument des
 
 - (to be released) Alternate instrument control code via `MPI for Python` and `Parallel HDF5`;
 
-- [96-Eyes Ptychographic reconstruction algorithm and file decoder](https://github.com/Caltech-Biophotonics-Lab/fpm-96eyes-reconstruction);
+- [FPM problem formulation with weak-phase
+  prior](https://comp-imaging.github.io/ProxImaL/examples/index.html#joint-image-super-resolution-and-phase-retrieval-with-fourier-ptychographic-microscopy-fpm),
+  part of the [ProxImaL](https://github.com/comp-imaging/ProxImaL) project;
+
+- [96-Eyes post-acquisition autofocus and phase-fluorescent image registration](https://github.com/Caltech-Biophotonics-Lab/fpm-96eyes-reconstruction);
 
 - GPU-accelerated, Zernike-guided lens aberration recovery (FPM-EPRY) algorithm for brightfield-only FPM images, and graphical user interfaces;
 
