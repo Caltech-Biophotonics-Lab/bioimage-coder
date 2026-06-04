@@ -67,7 +67,7 @@ This repository is one of the following components of the 96-Eyes instrument des
 
 - GPU-accelerated, Zernike-guided lens aberration recovery (FPM-EPRY) algorithm for brightfield-only FPM images, and graphical user interfaces;
 
-- Electronic circuit design and circuit board drawing of the illumination, thermal, and incubation modules;
+- Electronic circuit design and circuit board drawing of the illumination, thermal, and [motion control](https://github.com/Caltech-Biophotonics-Lab/piezo-stage-pid-board) modules;
 
 This repository is currently in code freeze status; new feature will not be
 developed here. However, we do occasionally patch the code to track the latest
